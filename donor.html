@@ -19,16 +19,16 @@
     <center>
       <div class="formContainer">
         <label for="firstname"><b>FIRST NAME</b></label>
-        <input type="text" id="firstname" name="firstname" placeholder="First Name" required><br>
+        <input type="text" id="firstname" name="firstname" placeholder="First Name" required pattern="[A-Za-z]+" title="Only letters allowed"><br>
 
         <label for="lastname"><b>LAST NAME</b></label>
-        <input type="text" id="lastname" name="lastname" placeholder="Last Name" required><br>
+        <input type="text" id="lastname" name="lastname" placeholder="Last Name" required pattern="[A-Za-z]+" title="Only letters allowed"><br>
 
         <label for="email"><b>EMAIL</b></label>
         <input type="email" id="email" name="email" placeholder="Enter Email" required><br>
 
         <label for="password"><b>PASSWORD</b></label>
-        <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
+        <input type="password" id="password" name="password" placeholder="Enter Password" required minlength="6" title="At least 6 characters"><br>
 
         <label><b>GENDER</b></label>
         <input type="radio" id="male" name="gender" value="Male">
@@ -39,11 +39,11 @@
         <label for="others">Other</label><br><br>
 
         <label for="dob"><b>Date of Birth</b></label>
-        <input type="date" id="dob" name="dob"><br><br>
+        <input type="date" id="dob" name="dob" required><br><br>
 
         <label for="bloodgroup"><b>Blood Group</b></label>
         <select id="bloodgroup" name="bloodgroup" required>
-          <option selected disabled hidden style='display:none'></option>
+          <option selected disabled hidden value="">Select your blood group</option>
           <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
           <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
         </select><br><br>
@@ -74,13 +74,27 @@
   <!-- JavaScript -->
   <script>
     document.getElementById('donorForm').addEventListener('submit', function(event) {
-      event.preventDefault();  // prevent page refresh
+      // Built-in validations
+      if (!this.checkValidity()) {
+        event.preventDefault(); // Stop form from submitting
+        this.reportValidity();  // Show native validation UI
+        return;
+      }
 
-      // Show simple confirmation
+      // Custom validation for radio buttons
+      const genderChecked = document.querySelector('input[name="gender"]:checked');
+      const interestChecked = document.querySelector('input[name="interest"]:checked');
+
+      if (!genderChecked || !interestChecked) {
+        event.preventDefault();
+        alert("Please select Gender and Blood Donor Interest.");
+        return;
+      }
+
+      // All validations passed
+      event.preventDefault();  // Prevent actual form submission
       alert("Details submitted");
-
-      // Reset the form
-      this.reset();
+      this.reset(); // Clear form
     });
   </script>
 
