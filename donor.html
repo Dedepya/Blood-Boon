@@ -66,29 +66,16 @@
 
   <center>Copyrights reserved &copy; Dedeepya</center>
 
-  <!-- Scripts -->
+  <!-- JavaScript -->
   <script>
     document.getElementById('donorForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // prevent page reload
+      event.preventDefault(); // Prevent actual form submission
 
-      const form = event.target;
-      const data = {
-        FirstName: form.firstname.value,
-        LastName: form.lastname.value,
-        Email: form.email.value,
-        Gender: form.gender.value,
-        DOB: form.dob.value,
-        BloodGroup: form.bloodgroup.value,
-        Address: form.address.value,
-        Interested: form.interest.value
-      };
+      // Show popup
+      alert("Details are submitted");
 
-      let message = `Please confirm your submitted details:\n\n`;
-      for (let key in data) {
-        message += `${key}: ${data[key]}\n`;
-      }
-
-      alert(message); // dialog box
+      // Clear the form
+      this.reset();
     });
   </script>
 
