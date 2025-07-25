@@ -15,66 +15,71 @@
 
   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZfgKEdXjvtHts0kc6OefCbTrwmBPwdjdrlA&usqp=CAU" height="200px" width="200px" style="display:block;margin-left:auto;margin-right:auto;" /><br>
 
-  <form id="donorForm"><center>
-    <div class="formContainer">
-      <label for="firstname"><b>FIRST NAME</b></label>
-      <input type="text" id="firstname" name="firstname" placeholder="First Name" required><br>
+  <form id="donorForm">
+    <center>
+      <div class="formContainer">
+        <label for="firstname"><b>FIRST NAME</b></label>
+        <input type="text" id="firstname" name="firstname" placeholder="First Name" required><br>
 
-      <label for="lastname"><b>LAST NAME</b></label>
-      <input type="text" id="lastname" name="lastname" placeholder="Last Name" required><br>
+        <label for="lastname"><b>LAST NAME</b></label>
+        <input type="text" id="lastname" name="lastname" placeholder="Last Name" required><br>
 
-      <label for="email"><b>EMAIL</b></label>
-      <input type="email" id="email" name="email" placeholder="Enter Email" required><br>
+        <label for="email"><b>EMAIL</b></label>
+        <input type="email" id="email" name="email" placeholder="Enter Email" required><br>
 
-      <label for="password"><b>PASSWORD</b></label>
-      <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
+        <label for="password"><b>PASSWORD</b></label>
+        <input type="password" id="password" name="password" placeholder="Enter Password" required><br>
 
-      <label><b>GENDER</b></label>
-      <input type="radio" id="male" name="gender" value="Male">
-      <label for="male">Male</label>
-      <input type="radio" id="female" name="gender" value="Female">
-      <label for="female">Female</label>
-      <input type="radio" id="others" name="gender" value="Other">
-      <label for="others">Other</label><br><br>
+        <label><b>GENDER</b></label>
+        <input type="radio" id="male" name="gender" value="Male">
+        <label for="male">Male</label>
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <input type="radio" id="others" name="gender" value="Other">
+        <label for="others">Other</label><br><br>
 
-      <label for="dob"><b>Date of Birth</b></label>
-      <input type="date" id="dob" name="dob"><br><br>
+        <label for="dob"><b>Date of Birth</b></label>
+        <input type="date" id="dob" name="dob"><br><br>
 
-      <label for="bloodgroup"><b>Blood Group</b></label>
-      <select id="bloodgroup" name="bloodgroup" required>
-        <option selected disabled hidden style='display:none'></option>
-        <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
-        <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
-      </select><br><br>
+        <label for="bloodgroup"><b>Blood Group</b></label>
+        <select id="bloodgroup" name="bloodgroup" required>
+          <option selected disabled hidden style='display:none'></option>
+          <option>O+</option><option>O-</option><option>AB+</option><option>AB-</option>
+          <option>A+</option><option>A-</option><option>B+</option><option>B-</option>
+        </select><br><br>
 
-      <label for="address"><b>ADDRESS</b></label>
-      <input type="text" id="address" name="address" required><br><br>
+        <label for="address"><b>ADDRESS</b></label>
+        <input type="text" id="address" name="address" required><br><br>
 
-      <label><b>ARE YOU INTERESTED IN BLOOD DONATING?</b></label>
-      <input type="radio" id="yes" name="interest" value="Yes">
-      <label for="yes">YES</label>
-      <input type="radio" id="no" name="interest" value="No">
-      <label for="no">NO</label><br><br>
+        <label><b>ARE YOU INTERESTED IN BLOOD DONATING?</b></label>
+        <input type="radio" id="yes" name="interest" value="Yes">
+        <label for="yes">YES</label>
+        <input type="radio" id="no" name="interest" value="No">
+        <label for="no">NO</label><br><br>
 
-      <label><input type="checkbox" name="remember" checked style="margin-bottom: 15px"> Remember me</label>
+        <label>
+          <input type="checkbox" name="remember" checked style="margin-bottom: 15px"> Remember me
+        </label>
 
-      <p>By creating an account you agree to our Terms & Privacy</p>
-    </div>
-    <button type="reset" class="reset">Reset</button>
-    <button type="submit" class="submit">Submit</button>
-  </center></form>
+        <p>By creating an account you agree to our Terms & Privacy</p>
+      </div>
+
+      <button type="reset" class="reset">Reset</button>
+      <button type="submit" class="submit">Submit</button>
+    </center>
+  </form>
 
   <center>Copyrights reserved &copy; Dedeepya</center>
 
   <!-- JavaScript -->
   <script>
     document.getElementById('donorForm').addEventListener('submit', function(event) {
-      event.preventDefault(); // Prevent actual form submission
+      event.preventDefault();  // prevent page refresh
 
-      // Show popup
-      alert("Details are submitted");
+      // Show simple confirmation
+      alert("Details submitted");
 
-      // Clear the form
+      // Reset the form
       this.reset();
     });
   </script>
